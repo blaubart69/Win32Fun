@@ -1,0 +1,1 @@
+cl /nologo HankerAnsiCMain.c HankerProgram.c /MT /link /map user32.lib

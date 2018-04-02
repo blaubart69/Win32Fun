@@ -8,13 +8,6 @@ void OutWriteLine(const char* text);
 void WriteLastError(const char* Apiname);
 void RunThread(void);
 
-void rawmain(void)
-{
-	RunThread();
-
-	ExitProcess(0);
-}
-
 DWORD WINAPI ThreadProc(LPVOID lpParameter)
 {
 	OutWriteLine("Hello Mr. Hanker from your thread");
