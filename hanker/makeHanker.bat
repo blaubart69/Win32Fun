@@ -1,0 +1,1 @@
+cl /nologo /GS- hanker.c /link /map /entry:rawmain /nodefaultlib /subsystem:console kernel32.lib user32.lib

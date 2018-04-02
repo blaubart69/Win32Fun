@@ -3,7 +3,9 @@ cc=cl.exe
 ln=link.exe /nologo
 out=out\$(PROCESSOR_ARCHITECTURE)
 
-all: create_dirs $(out)\HelloWorld_rawmain_printf.exe $(out)\HelloWorld_win32.exe
+all: create_dirs \
+	$(out)\HelloWorld_rawmain_printf.exe \
+	$(out)\HelloWorld_win32.exe
 
 # create output directories
 create_dirs:
