@@ -3,9 +3,8 @@
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-void OutWrite(const char* text);
-void OutWriteLine(const char* text);
-void WriteLastError(const char* Apiname);
+#include "../beeLib.h"
+
 void RunThread(void);
 
 DWORD WINAPI ThreadProc(LPVOID lpParameter)
@@ -31,24 +30,4 @@ void RunThread(void)
 	CloseHandle(hThread);
 }
 
-void WriteLastError(const char* Apiname)
-{
-	char buffer[1024];
-	wsprintf(buffer, "E-Win32API: Lasterror: %d, Api: %s", GetLastError(), Apiname);
-	OutWriteLine(buffer);
-}
 
-void OutWriteLine(const char* text)
-{
-	OutWrite(text);
-	OutWrite("\n");
-}
-
-void OutWrite(const char* text)
-{
-	DWORD bytesWritten;
-	if (WriteFile(GetStdHandle(STD_OUTPUT_HANDLE), text, lstrlenA(text), &bytesWritten, NULL) == FALSE)
-	{
-		WriteLastError("WriteFile");
-	}
-}
