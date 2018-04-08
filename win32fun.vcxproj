@@ -150,8 +150,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="beeLib.c" />
+    <ClCompile Include="cmdline.c" />
     <ClCompile Include="resolve.c" />
-    <ClCompile Include="ResolveRawMain.c" />
+    <ClCompile Include="ResolveMain.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="beeLib.h" />

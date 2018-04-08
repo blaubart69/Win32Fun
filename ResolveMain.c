@@ -1,3 +1,4 @@
+#define  UNICODE
 #define _UNICODE
 
 #define WIN32_LEAN_AND_MEAN
@@ -9,21 +10,26 @@
 
 int Resolve(const WCHAR* hostname);
 
-void rawmain(void)
+int beeMain(WCHAR* argv[], int argc)
 {
-	OutWriteFW(L"starting WinSock\n");
+	if (argc < 2 || argc > 2)
+	{
+		OutWriteFW(L"usage: resolve.exe {hostname}\n");
+		return(1);
+	}
 
-	// Initialize Winsock
+	WCHAR* hostnameToResolve = argv[1];
+
 	WSADATA wsaData;
 	int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (iResult != 0) {
 		OutWriteLastError(L"WSAStartup");
-		ExitProcess(1);
+		return 2;
 	}
 
-	Resolve(L"git.spindi.top");
+	int resolveRc = Resolve(hostnameToResolve);
 
 	WSACleanup();
 
-	ExitProcess(0);
+	return 0;
 }

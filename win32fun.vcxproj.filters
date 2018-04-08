@@ -24,7 +24,10 @@
     <ClCompile Include="resolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ResolveRawMain.c">
+    <ClCompile Include="ResolveMain.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cmdline.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

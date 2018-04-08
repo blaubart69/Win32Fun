@@ -26,11 +26,11 @@ int Resolve(const WCHAR* hostname)
 	for (i = result; i != NULL; i = i->ai_next)
 	{
 		WCHAR* proto;
-		if (i->ai_protocol == IPPROTO_IPV4)
+		if (i->ai_family == AF_INET)
 		{
 			proto = L"IPv4";
 		}
-		else if (i->ai_protocol == IPPROTO_IPV6)
+		else if (i->ai_family == AF_INET6 )
 		{
 			proto = L"IPv6";
 		}
